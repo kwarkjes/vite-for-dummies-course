@@ -7,3 +7,16 @@ Object.entries(modules).forEach(async ([path, module]) => {
   container.insertAdjacentHTML('beforeend', drawing);
   container.insertAdjacentHTML('beforeend', '<hr />');
 })
+
+setInterval(() => {
+  // update a counter in the .container
+  const counter = document.querySelector('.counter');
+  const count = parseInt(counter.textContent, 10);
+  counter.textContent = count + 1;
+}, 1000);
+
+if (import.meta.hot) {
+  import.meta.hot.on('arrow-parser-update', ({ svg, file}) => {
+    document.querySelector(`[data-title="${file}"]`).innerHTML = svg;
+  })
+}
