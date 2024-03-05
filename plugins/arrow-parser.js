@@ -1,4 +1,4 @@
-export default ({ splitter = '->' }) => ({
+export default ({ splitter = '->' } = {}) => ({
   name: 'arrow-parser',
   async transform(src, id) {
     if (/\.arrow$/.test(id)) {
