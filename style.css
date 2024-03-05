@@ -1,0 +1,13 @@
+line {
+  stroke-width: 2px;
+  stroke: #000;
+}
+text {
+  fill: #000;
+  font-size: 14px;
+  font-family: monospace;
+  font-weight: bold;
+}
+rect {
+  fill: #eeb717;
+}
