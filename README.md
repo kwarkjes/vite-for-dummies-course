@@ -1,7 +1,11 @@
-# Branches
+# In this chapter
 
-- chapter-1--01
-- chapter-1--02
-- chapter-1--03
-- chapter-1--04
-- chapter-1--05
+By default a change in any kind of file will cause a full reload unless HMR is taken care off by the developers themselves.
+
+- Let's add some state to the application
+    - Add an interval with a counter
+- Change any css property in `style.css`
+    - Notice that the counter **does not reset**
+- Now change the value of `data/js.arrow`
+    - Notice that the counter **resets** because the page is refreshed
+- Move to the next step `chapter-2--02`
