@@ -1,13 +1,9 @@
-import js from './data/js.arrow';
-import pipeline from './data/pipeline.arrow';
-// import life from './data/life.arrow';
-// import music from './data/music.arrow';
-// import writing from './data/music.arrow';
 import './style.css'
-
-
-document.querySelector('.js').innerHTML = js;
-document.querySelector('.pipeline').innerHTML = pipeline;
-
-
-
+const container = document.querySelector('.container');
+const modules = import.meta.glob('./data/\*.arrow');
+Object.entries(modules).forEach(async ([path, module]) => {
+  const { default: drawing } = await module();
+  container.insertAdjacentHTML('beforeend', `<h1>${path.replace('./data/', '').replace('.arrow', '')}</h1>`);
+  container.insertAdjacentHTML('beforeend', drawing);
+  container.insertAdjacentHTML('beforeend', '<hr />');
+})
