@@ -1,7 +1,5 @@
-# Branches
+# In this chapter
 
-- chapter-1--01
-- chapter-1--02
-- chapter-1--03
-- chapter-1--04
-- chapter-1--05
+In this step we will try to use the client (browser) to control our code base.
+
+This is then powered by a plugin that reads the events from the browser and saves the data to the filesystem.
