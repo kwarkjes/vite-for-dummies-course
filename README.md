@@ -1,7 +1,9 @@
-# Branches
+# In this chapter
 
-- chapter-1--01
-- chapter-1--02
-- chapter-1--03
-- chapter-1--04
-- chapter-1--05
+We will setup basic communication between the server and the client to send data back and forth
+
+You can find the basic communnication happending between the client & the server in the `main.js` and `vite.config.js` files
+
+If you would open your network tab and select the `localhost` websocket connection you will see the messages going back and forth
+
+In the next step we will try to add some interaction between them

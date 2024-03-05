@@ -1,9 +1,9 @@
-import './style.css'
-const container = document.querySelector('.container');
-const modules = import.meta.glob('./data/\*.arrow');
-Object.entries(modules).forEach(async ([path, module]) => {
-  const { default: drawing } = await module();
-  container.insertAdjacentHTML('beforeend', `<h1>${path.replace('./data/', '').replace('.arrow', '')}</h1>`);
-  container.insertAdjacentHTML('beforeend', drawing);
-  container.insertAdjacentHTML('beforeend', '<hr />');
+const { userAgent } = navigator
+
+// Listen for a custom event from Vite server
+import.meta.hot.on('my-custom-event', ({ message }) => {
+  console.log(message )
 })
+
+// Send a custom event to Vite server
+import.meta.hot.send('my-custom-event', { message: `My server! my user agent is ${userAgent}` })
