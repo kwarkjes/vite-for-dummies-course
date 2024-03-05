@@ -9,9 +9,8 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "ofetch": "^1.3.4",
+    "puppeteer": "^22.6.5",
     "vite": "^5.1.4"
-  },
-  "dependencies": {
-    "vite-plugin-inspect": "^0.8.3"
   }
 }

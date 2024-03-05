@@ -1,12 +1,15 @@
 import { defineConfig } from "vite";
-import PluginInspect from "vite-plugin-inspect";
-import ArrowParser from './plugins/arrow-parser';
+import myPlugin from "./plugins/my-plugin";
+
 
 export default defineConfig({
-  plugins: [
-    PluginInspect(),
-    ArrowParser({
-      // foo: 'bar'
-    }),
-  ],
+  plugins: [myPlugin()],
+  server: {
+    proxy: {
+      '/api/graphql': {
+        target: 'https://test.jumbo.com',
+        changeOrigin: true,
+      }
+    }
+  }
 });

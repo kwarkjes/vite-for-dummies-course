@@ -1,7 +1,5 @@
-# Branches
+# In this chapter
 
-- chapter-1--01
-- chapter-1--02
-- chapter-1--03
-- chapter-1--04
-- chapter-1--05
+We will try to move all the magic to the plugin itself. We won't be doing any of the "DX" related stuff in our main.js file
+
+We will try to inject our logic from the plugin itself
