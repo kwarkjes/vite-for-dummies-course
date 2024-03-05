@@ -1,4 +1,4 @@
-export function createSVG(nodes) {
+export function createSVG(nodes, title) {
   const nodeHeight = 30;
   const fontWidth = 8; // Adjusted font width
   const borderRadius = 5; // Adjusted border radius for rounded edges
@@ -19,7 +19,7 @@ export function createSVG(nodes) {
     x += nodeWidth + 50; // Adjusted horizontal spacing
   }
 
-  let svgString = `<svg xmlns="http://www.w3.org/2000/svg" width="${maxNodeX}" height="${maxNodeY}">`; // Start SVG string with width and height
+  let svgString = `<svg xmlns="http://www.w3.org/2000/svg" width="${maxNodeX}" height="${maxNodeY}" data-title="${title}">`; // Start SVG string with width and height
 
   x = 0; // Reset x for rendering nodes
 

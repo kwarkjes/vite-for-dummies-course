@@ -1,22 +1,47 @@
 import { createSVG } from "../utils/create-svg";
-export default ({ splitter = '->' }) => ({
-  name: 'arrow-parser',
-  async transform(src, id) {
-    if (/\.arrow$/.test(id)) {
-      const data = src.split(splitter).map(item => (item || '').trim());
-      const svg = createSVG(data);
-      return {
-        code: `export default '${svg}'`,
+let inputSplitter = '->';
+
+const tranform  = (data, file) => {
+  const str = data.split(inputSplitter).map(item => (item || '').trim());
+  return createSVG(str, file);
+}
+
+export default ({ splitter = '->' } = {}) => {
+  inputSplitter = splitter;
+
+  return {
+    name: 'arrow-parser',
+    async transform(src, id) {
+      if (/\.arrow$/.test(id)) {
+        return {
+          code: `export default '${tranform(src, id)}'`,
+        }
       }
-    }
-  },
-  transformIndexHtml: {
-    handler(html, ctx) {
-      // console.log('TRANFORM', html)
-      return {
-        html: html.replace('Pipeline', '<pre>Hi</pre>'),
-        tags: [],
+    },
+    async handleHotUpdate({ file, server, read }) {
+      if (/\.arrow$/.test(file)) {
+        const svg = tranform(await read(file), file);
+        server.hot.send({
+          type: 'custom',
+          event: 'arrow-parser-update',
+          data: { svg, file }
+        })
+        return []
       }
-    }
-  }
-});
+    },
+    // transformIndexHtml(html) {
+    //   return {
+    //     html,
+    //     tags: [
+    //       {
+    //         tag: 'script',
+    //         attrs: {
+    //           type: 'module',
+    //           src: "./plugins/hmr",
+    //         },
+    //       }
+    //     ],
+    //   }
+    // }
+  };
+};
