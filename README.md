@@ -1,7 +1,7 @@
 # In this chapter
 
-- import non JS files
-- Showcase what happens when you export different types (example object vs string)
-- Build for prod
-- Pass params to configure your plugin
-  - use case replace `splitter`
+- Setup vite in a blank project
+- vite serve
+- vite build
+- Static assets handeling
+  - Let's play around with some `explicit` imports

@@ -1,3 +1,3 @@
-import life from './data/life.arrow';
-
-console.log(life)
+console.log('Hi guys!')
+// import onlyVans from './only-vans.jpg';
+// document.querySelector('.van').src = onlyVans;
