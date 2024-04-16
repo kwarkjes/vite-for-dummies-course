@@ -23,3 +23,4 @@ We will try to understand how the client communicates with the vite server and w
 - chapter-2--03
 - chapter-2--04
 - chapter-2--05
+- chapter-2--06
